@@ -92,7 +92,7 @@ public class ItemFlightTiara extends ItemBauble implements IManaUsingItem, IBaub
         MinecraftForge.EVENT_BUS.register(this);
         FMLCommonHandler.instance().bus().register(this);
         setHasSubtypes(true);
-        if(ConfigHandler.flugelTiaraNerfEnabled){
+        if(ConfigHandler.flugelTiaraNerfDisabled){
             MAX_FLY_TIME = Integer.MAX_VALUE;
         }
     }
@@ -519,21 +519,21 @@ public class ItemFlightTiara extends ItemBauble implements IManaUsingItem, IBaub
         int segTime = MAX_FLY_TIME / 10;
         int segs = left / segTime + 1;
         int last = left % segTime;
+        if(!ConfigHandler.flugelTiaraNerfDisabled) {
+            for (int i = 0; i < segs; i++) {
+                float trans = 1F;
+                if (i == segs - 1) {
+                    trans = (float) last / (float) segTime;
+                    GL11.glEnable(GL11.GL_BLEND);
+                    GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+                    GL11.glDisable(GL11.GL_ALPHA_TEST);
+                }
 
-        for(int i = 0; i < segs; i++) {
-            float trans = 1F;
-            if(i == segs - 1) {
-                trans = (float) last / (float) segTime;
-                GL11.glEnable(GL11.GL_BLEND);
-                GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-                GL11.glDisable(GL11.GL_ALPHA_TEST);
+                GL11.glColor4f(1F, 1F, 1F, trans);
+                RenderHelper.drawTexturedModalRect(x, y, 0, u, v, 9, 9);
+                x += 8;
             }
-
-            GL11.glColor4f(1F, 1F, 1F, trans);
-            RenderHelper.drawTexturedModalRect(x, y, 0, u, v, 9, 9);
-            x += 8;
         }
-
         if(player.capabilities.isFlying) {
             int width = ItemNBTHelper.getInt(stack, TAG_DASH_COOLDOWN, 0);
             GL11.glColor4f(1F, 1F, 1F, 1F);

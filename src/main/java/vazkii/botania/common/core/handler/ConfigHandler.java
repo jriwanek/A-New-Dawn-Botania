@@ -91,7 +91,7 @@ public final class ConfigHandler {
     public static int thermalilyCooldown = 0;
     public static int hydroangeaCooldown = 0;
     public static boolean gaiaMusicEnabled = true;
-    public static boolean flugelTiaraNerfEnabled = false;
+    public static boolean flugelTiaraNerfDisabled = false;
     public static int flugelTiaraCost = 35;
     public static int flugelTiaraMaxFlyTime = 400;
 
@@ -251,8 +251,8 @@ public final class ConfigHandler {
         desc = "Set this to false to disable Guardian of Gaia boss fight music";
         gaiaMusicEnabled = loadPropBool("gaiamusic.enabled", desc, gaiaMusicEnabled);
 
-        desc = "Set this to false to disable flugel tiara infinite flight";
-        flugelTiaraNerfEnabled = loadPropBool("flugeltiaranerf.enabled", desc, flugelTiaraNerfEnabled);
+        desc = "Set this to true to disable flugel tiara infinite flight";
+        flugelTiaraNerfDisabled = loadPropBool("flugeltiaranerf.enabled", desc, flugelTiaraNerfDisabled);
 
         desc = "Change the value of this to set the mana cost per tick of the flugel tiara";
         flugelTiaraCost = loadPropInt("flugeltiara.cost", desc, flugelTiaraCost);
