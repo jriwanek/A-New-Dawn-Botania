@@ -41,6 +41,11 @@ public class BLexiconEntry extends LexiconEntry {
 		return "botania.entry." + super.getUnlocalizedName();
 	}
 
+	@Override
+	public String getTagline() {
+		return "botania.tagline." + super.getUnlocalizedName();
+	}
+
 	public String getLazyUnlocalizedName() {
 		return super.getUnlocalizedName();
 	}

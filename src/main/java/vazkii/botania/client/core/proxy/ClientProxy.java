@@ -59,6 +59,7 @@ import vazkii.botania.client.gui.lexicon.GuiLexiconIndex;
 import vazkii.botania.client.integration.nei.NEIGuiHooks;
 import vazkii.botania.client.lib.LibRenderIDs;
 import vazkii.botania.client.render.block.RenderAltar;
+import vazkii.botania.client.render.block.RenderAvatar;
 import vazkii.botania.client.render.block.RenderBellows;
 import vazkii.botania.client.render.block.RenderBrewery;
 import vazkii.botania.client.render.block.RenderCocoon;
@@ -92,6 +93,7 @@ import vazkii.botania.client.render.item.RenderLexicon;
 import vazkii.botania.client.render.item.RenderTransparentItem;
 import vazkii.botania.client.render.tile.RenderTileAlfPortal;
 import vazkii.botania.client.render.tile.RenderTileAltar;
+import vazkii.botania.client.render.tile.RenderTileAvatar;
 import vazkii.botania.client.render.tile.RenderTileBellows;
 import vazkii.botania.client.render.tile.RenderTileBrewery;
 import vazkii.botania.client.render.tile.RenderTileCocoon;
@@ -119,6 +121,7 @@ import vazkii.botania.client.render.tile.RenderTileTinyPotato;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.block.tile.TileAlfPortal;
 import vazkii.botania.common.block.tile.TileAltar;
+import vazkii.botania.common.block.tile.TileAvatar;
 import vazkii.botania.common.block.tile.TileBrewery;
 import vazkii.botania.common.block.tile.TileCocoon;
 import vazkii.botania.common.block.tile.TileEnchanter;
@@ -174,6 +177,7 @@ import cpw.mods.fml.relauncher.ReflectionHelper;
 public class ClientProxy extends CommonProxy {
 
 	public static boolean singAnnoyingChristmasSongsTillVazkiisHeadExplodesFromAllTheDamnJingle = false;
+	public static boolean dootDoot = false;
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
@@ -201,10 +205,14 @@ public class ClientProxy extends CommonProxy {
 		FMLCommonHandler.instance().bus().register(new CorporeaAutoCompleteHandler());
 
 
-		// Jingle bells jingle bells
-		Calendar calendar = Calendar.getInstance();
-		if(calendar.get(2) == 11 && calendar.get(5) >= 24 && calendar.get(5) <= 26 || calendar.get(2) == 0 && calendar.get(5) <= 6)
-			singAnnoyingChristmasSongsTillVazkiisHeadExplodesFromAllTheDamnJingle = true;
+		if(ConfigHandler.enableSeasonalFeatures) {
+			Calendar calendar = Calendar.getInstance();
+			if(calendar.get(2) == 11 && calendar.get(5) >= 24 && calendar.get(5) <= 26 || calendar.get(2) == 0 && calendar.get(5) <= 6)
+				singAnnoyingChristmasSongsTillVazkiisHeadExplodesFromAllTheDamnJingle = true;
+			if(calendar.get(2) == 9)
+				dootDoot = true;
+		}
+
 
 		initRenderers();
 
@@ -262,6 +270,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new RenderCocoon());
 		RenderingRegistry.registerBlockHandler(new RenderBellows());
 		RenderingRegistry.registerBlockHandler(new RenderTeruTeruBozu());
+		RenderingRegistry.registerBlockHandler(new RenderAvatar());
 
 		IMultiblockRenderHook.renderHooks.put(ModBlocks.flower, specialFlowerRender);
 		IMultiblockRenderHook.renderHooks.put(ModBlocks.shinyFlower, specialFlowerRender);
@@ -308,6 +317,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileBellows.class, new RenderTileBellows());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileGaiaHead.class, new RenderTileSkullOverride());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileTeruTeruBozu.class, new RenderTileTeruTeruBozu());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileAvatar.class, new RenderTileAvatar());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySkull.class, new RenderTileSkullOverride());
 

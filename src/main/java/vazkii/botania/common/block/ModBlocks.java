@@ -118,6 +118,7 @@ import vazkii.botania.common.block.subtile.generating.SubTileSpectrolus;
 import vazkii.botania.common.block.subtile.generating.SubTileThermalily;
 import vazkii.botania.common.block.tile.TileAlfPortal;
 import vazkii.botania.common.block.tile.TileAltar;
+import vazkii.botania.common.block.tile.TileAvatar;
 import vazkii.botania.common.block.tile.TileBifrost;
 import vazkii.botania.common.block.tile.TileBrewery;
 import vazkii.botania.common.block.tile.TileCacophonium;
@@ -266,6 +267,7 @@ public final class ModBlocks {
 	public static Block teruTeruBozu;
 	public static Block shimmerrock;
 	public static Block shimmerwoodPlanks;
+	public static Block avatar;
 
 	public static void init() {
 		flower = new BlockModFlower();
@@ -356,6 +358,7 @@ public final class ModBlocks {
 		teruTeruBozu = new BlockTeruTeruBozu();
 		shimmerrock = new BlockShimmerrock();
 		shimmerwoodPlanks = new BlockShimmerwoodPlanks();
+		avatar = new BlockAvatar();
 
 		ModFluffBlocks.init();
 		if(ConfigHandler.stairsEnabled){
@@ -401,6 +404,9 @@ public final class ModBlocks {
 		OreDictionary.registerOre("slabCobblestone", new ItemStack(Blocks.stone_slab, 1, 3));
 		OreDictionary.registerOre("chestWood", Blocks.chest);
 		OreDictionary.registerOre("craftingTableWood", Blocks.crafting_table);
+
+		BotaniaAPI.registerPaintableBlock(unstableBlock);
+		BotaniaAPI.registerPaintableBlock(manaBeacon);
 
 		initTileEntities();
 	}
@@ -466,15 +472,18 @@ public final class ModBlocks {
 		registerTile(TileGaiaHead.class, LibBlockNames.GAIA_HEAD);
 		registerTile(TileCorporeaRetainer.class, LibBlockNames.CORPOREA_RETAINER);
 		registerTile(TileTeruTeruBozu.class, LibBlockNames.TERU_TERU_BOZU);
+		registerTile(TileAvatar.class, LibBlockNames.AVATAR);
 
 		BotaniaAPI.registerSubTile(LibBlockNames.SUBTILE_PUREDAISY, SubTilePureDaisy.class);
 		BotaniaAPI.registerSubTile(LibBlockNames.SUBTILE_MANASTAR, SubTileManastar.class);
 
 		registerSubTileWithDecor(LibBlockNames.SUBTILE_DAYBLOOM, SubTileDaybloom.class, SubTileDecor.Daybloom.class);
+		BotaniaAPI.registerSubTile(LibBlockNames.SUBTILE_DAYBLOOM_PRIME, SubTileDaybloom.Prime.class);
 		BotaniaAPI.registerSubTile(LibBlockNames.SUBTILE_ENDOFLAME, SubTileEndoflame.class);
 		registerSubTileWithDecor(LibBlockNames.SUBTILE_HYDROANGEAS, SubTileHydroangeas.class, SubTileDecor.Hydroangeas.class);
 		BotaniaAPI.registerSubTile(LibBlockNames.SUBTILE_THERMALILY, SubTileThermalily.class);
 		registerSubTileWithDecor(LibBlockNames.SUBTILE_NIGHTSHADE, SubTileNightshade.class, SubTileDecor.Nightshade.class);
+		BotaniaAPI.registerSubTile(LibBlockNames.SUBTILE_NIGHTSHADE_PRIME, SubTileNightshade.Prime.class);
 		BotaniaAPI.registerSubTile(LibBlockNames.SUBTILE_ARCANE_ROSE, SubTileArcaneRose.class);
 		BotaniaAPI.registerSubTile(LibBlockNames.SUBTILE_MUNCHDEW, SubTileMunchdew.class);
 		BotaniaAPI.registerSubTile(LibBlockNames.SUBTILE_ENTROPINNYUM, SubTileEntropinnyum.class);

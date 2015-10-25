@@ -10,6 +10,7 @@
  */
 package vazkii.botania.common.lexicon.page;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -94,6 +95,8 @@ public class PagePetalRecipe<T extends RecipePetals> extends PageRecipe {
 		return new ItemStack(ModBlocks.altar);
 	}
 
+
+
 	@SideOnly(Side.CLIENT)
 	public void renderManaBar(IGuiLexiconEntry gui, T recipe, int mx, int my) {
 		// NO-OP
@@ -109,6 +112,15 @@ public class PagePetalRecipe<T extends RecipePetals> extends PageRecipe {
 				recipeAt = 0;
 		}
 		++ticksElapsed;
+	}
+
+	@Override
+	public List<ItemStack> getDisplayedRecipes() {
+		ArrayList<ItemStack> list = new ArrayList();
+		for(T r : recipes)
+			list.add(r.getOutput());
+
+		return list;
 	}
 
 }

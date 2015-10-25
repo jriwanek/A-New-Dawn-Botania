@@ -35,4 +35,18 @@ public class SubTileNightshade extends SubTileDaybloom {
 		return LexiconData.nightshade;
 	}
 
+	public static class Prime extends SubTileNightshade {
+
+		@Override
+		public boolean isPrime() {
+			return true;
+		}
+
+		@Override
+		public LexiconEntry getEntry() {
+			return LexiconData.primusLoci;
+		}
+
+	}
+
 }

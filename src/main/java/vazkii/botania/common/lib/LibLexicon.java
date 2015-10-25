@@ -92,7 +92,8 @@ public final class LibLexicon {
 	public static final String FFLOWER_SOLEGNOLIA = "solegnolia";
 
 	public static final String GFLOWER_INTRO = "gIntro";
-    public static final String GFLOWER_PASSIVE_GENERATION = "passiveGen";
+	public static final String GFLOWER_PASSIVE_GENERATION = "passiveGen";
+	public static final String GFLOWER_PRIMUS_LOCI = "primusLoci";
 	public static final String GFLOWER_DAYBLOOM = "daybloom";
 	public static final String GFLOWER_NIGHTSHADE = "nightshade";
 	public static final String GFLOWER_ENDOFLAME = "endoflame";
@@ -130,6 +131,7 @@ public final class LibLexicon {
 	public static final String DEVICE_COCOON = "cocoon";
 	public static final String DEVICE_MANA_BOMB = "manaBomb";
 	public static final String DEVICE_TERU_TERU_BOZU = "teruTeruBozu";
+	public static final String DEVICE_AVATAR = "avatar";
 
 	public static final String TOOL_MANA_BLASTER = "manaBlaster";
 	public static final String TOOL_GRASS_SEEDS = "grassSeeds";
