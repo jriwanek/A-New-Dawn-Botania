@@ -301,6 +301,7 @@ public final class ModCraftingRecipes {
 	public static IRecipe recipeCorporeaRetainer;
 	public static IRecipe recipeTeruTeruBozu;
 	public static IRecipe recipeAvatar;
+	public static IRecipe recipeSextant;
 
 	// Garden of Glass
 	public static IRecipe recipeRootToSapling;
@@ -1305,7 +1306,7 @@ public final class ModCraftingRecipes {
 		// Spark Recipe
 		for(int i = 0; i < 16; i++)
 			addOreDictRecipe(new ItemStack(ModItems.spark),
-					"BPB", "BNB", "BPB",
+					" P ", "BNB", " P ",
 					'B', new ItemStack(Items.blaze_powder),
 					'P', LibOreDict.MANA_PETAL[i],
 					'N', "nuggetGold");
@@ -2030,6 +2031,13 @@ public final class ModCraftingRecipes {
 				'D', LibOreDict.MANA_DIAMOND);
 		recipeAvatar = BotaniaAPI.getLatestAddedRecipe();
 
+		// Worldshaper's Sextant Recipe
+		addOreDictRecipe(new ItemStack(ModItems.sextant), 
+				" TI", " TT", "III",
+				'T', LibOreDict.LIVINGWOOD_TWIG,
+				'I', LibOreDict.MANA_STEEL);
+		recipeSextant = BotaniaAPI.getLatestAddedRecipe();
+		
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		// Storage Block/Nugget Recipes

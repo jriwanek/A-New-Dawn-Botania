@@ -205,6 +205,7 @@ public final class LexiconData {
 	public static LexiconEntry exchangeRod;
 	public static LexiconEntry manaweave;
 	public static LexiconEntry autocraftingHalo;
+	public static LexiconEntry sextant;
 
 	public static LexiconEntry enderAir;
 	public static LexiconEntry enderEyeBlock;
@@ -585,7 +586,7 @@ public final class LexiconData {
 
 		if(ConfigHandler.enchanterEnabled) {
 			manaEnchanting = new BLexiconEntry(LibLexicon.DEVICE_MANA_ENCHANTING, categoryDevices);
-			manaEnchanting.setLexiconPages(new PageText("0"), new PageText("1"), new PageMultiblock("2", ModMultiblocks.enchanter), new PageText("5"), new PageText("6"), new PageText("7")).setIcon(new ItemStack(ModBlocks.enchanter));
+			manaEnchanting.setLexiconPages(new PageText("0"), new PageText("1"), new PageMultiblock("2", ModMultiblocks.enchanter), new PageText("5"), new PageText("6"), new PageText("7"), new PageText("8"), new PageText("9")).setIcon(new ItemStack(ModBlocks.enchanter));
 		}
 
 		turntable = new BLexiconEntry(LibLexicon.DEVICE_TURNTABLE, categoryDevices);
@@ -801,6 +802,9 @@ public final class LexiconData {
 		autocraftingHalo = new BLexiconEntry(LibLexicon.TOOL_AUTOCRAFTING_HALO, categoryTools);
 		autocraftingHalo.setLexiconPages(new PageText("0"), new PageCraftingRecipe("1", ModCraftingRecipes.recipeAutocraftingHalo));
 
+		sextant = new BLexiconEntry(LibLexicon.TOOL_SEXTANT, categoryTools);
+		sextant.setLexiconPages(new PageText("0"), new PageText("1"), new PageCraftingRecipe("2", ModCraftingRecipes.recipeSextant));
+		
 		// ENDER ENTRIES
 		enderAir = new BLexiconEntry(LibLexicon.ENDER_AIR, categoryEnder);
 		enderAir.setPriority().setLexiconPages(new PageText("0"));

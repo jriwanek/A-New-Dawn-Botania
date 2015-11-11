@@ -383,6 +383,21 @@ botania.versioning.flavour46=You were expecting Botania to be up to date, but it
 botania.versioning.flavour47=Rumour says if you move the truck there's a Botania Update below it.
 botania.versioning.flavour48=I wonder when Bevo's updating his pack...
 botania.versioning.flavour49=1 Botania Update on the wall, 1 Botania Update on the wall.
+botania.versioning.flavour50=You notice Botania has updated. It fills you with determination.
+botania.versioning.flavour51=Update your game Sjin!
+botania.versioning.flavour52=Thy lord addeth and thy user updateth away.
+botania.versioning.flavour53=Who wants a Botania Update at 3 in the morning?
+botania.versioning.flavour54=Everybody say: Updating de!
+botania.versioning.flavour55=Thank you for signing up for Update Facts! Botania has updated!
+botania.versioning.flavour56=Update botania, roach boy, support the pyramid =)
+botania.versioning.flavour57=gr8 b8 m8 here's an upd8
+botania.versioning.flavour58=The power of the update compels you!
+botania.versioning.flavour59=NICOLO BREADMUND GIVE UPDATE
+botania.versioning.flavour60=Botania Updates. They do what they must, because they can.
+botania.versioning.flavour61=Update me! Update me! Update me Seymore!
+botania.versioning.flavour62=Nine out of ten doctors recommend you update Botania.
+botania.versioning.flavour63=The update bacons at midnight.
+botania.versioning.flavour64=A new Botania Update is out. And it's name is JOHN CENA! DOO DOO DOO DOO
 botania.versioning.outdated=You are running Botania build %s, the latest is build %s.
 botania.versioning.updateMessage=["Click for... [",{"text":"Download","color":"green","hoverEvent":{"action":"show_text","value":{"text":"Click this to automatically download the latest version","color":"green"}},"clickEvent":{"action":"run_command","value":"/botania-download-latest %version%"}},"] [",{"text":"Website","color":"green","hoverEvent":{"action":"show_text","value":{"text":"Click this to go to the mod's website","color":"green"}},"clickEvent":{"action":"open_url","value":"http://botaniamod.net/downloads.php"}},"] [",{"text":"Changelog","color":"green","hoverEvent":{"action":"show_text","value":{"text":"Click this to go to the version's Changelog","color":"green"}},"clickEvent":{"action":"open_url","value":"http://botaniamod.net/changelog.php#%version%"}},"]"]
 botania.versioning.startingDownload=[{"text":"Starting download of %s. Please do not remove your hard disk. Enjoying ","color":"aqua"},{"text":"Botania","color":"green"},{"text":"? Consider supporting ","color":"aqua"},{"text":"Vazkii","color":"light_purple"},{"text":" on [","color":"aqua"},{"text":"Patreon","color":"gold","hoverEvent":{"action":"show_text","value":{"text":"Click this to go to Vazkii's Patreon","color":"light_purple"}},"clickEvent":{"action":"open_url","value":"http://www.patreon.com/Vazkii"}},{"text":"]!","color":"aqua"}]
@@ -1281,6 +1296,8 @@ tile.botania:flower.bubbellChibi.name=Bubbell Petite
 tile.botania:flower.bubbellChibi.reference=And whistle
 tile.botania:flower.solegnolia.name=Solegnolia
 tile.botania:flower.solegnolia.reference=All your magnets are belong to us
+tile.botania:flower.solegnoliaChibi.name=Solegnolia Petite
+tile.botania:flower.solegnoliaChibi.reference=All your magnets are belong to us
 
 # ITEM NAMES
 item.botania:lexicon.name=Lexica Botania
@@ -1611,6 +1628,7 @@ item.botania:manaweaveChest.name=Manaweave Robe Top
 item.botania:manaweaveLegs.name=Manaweave Robe Bottom
 item.botania:manaweaveBoots.name=Manaweave Boots
 item.botania:gaiaHead.name=Gaia Guardian's Head
+item.botania:sextant.name=Worldshaper's Sextant
 
 # BREW NAMES
 botania.brew.fallback=Fallback
@@ -1962,7 +1980,7 @@ botania.page.gardenOfGlass12=Lastly, an &1End Portal&0 recipe
 botania.entry.lexicon=Lexica Botania
 botania.tagline.lexicon=What you're reading right now, dummy
 botania.page.lexicon0=The &1Lexica Botania&0 is the repository of all knowledge for all botany related matters. But you probably knew that already.<br>All information is stored here, as expected. For convenience, if a block happens to have an entry, it can be shift-right clicked with the &1Lexica Botania&0 to open that entry.
-botania.page.lexicon3=Any entries typed in &oItalics&r are &4basic&0 entries, which contain the very basic knowledge required to playing Botania. They should be prioritized over others, most of the sections contain one or more, so a good look through through them is a good idea.
+botania.page.lexicon3=Any entries typed in &oItalics&r are &4basic&0 entries, which contain the very basic knowledge required to play Botania. They should be prioritized over others, most of the sections contain one or more, so a good look through through them is a good idea.
 botania.page.lexicon1=Crafting the &1Lexica Botania&0.
 botania.page.lexicon2=The &1Lexica Botania&0's title can also be customized. By placing it in an &1Anvil&0 and renaming it, one can not only change its cover, but also the title.<br>The Edition of the lexica shown equates to the version of the &4Botania&0 you're running, and no, I don't care about the fourth wall.
 
@@ -2433,7 +2451,7 @@ botania.page.bubbell1=&oLike some casual game&r.
 # -- SOLEGNOLIA
 botania.entry.solegnolia=Solegnolia
 botania.tagline.solegnolia=Creates spaces where the Ring of Magnetization doesn't work
-botania.page.solegnolia0=The &1Ring of Magnetization&0 is a rather handy tool for anyone digging or collecting. It does, however, fall into the problem that it picks up unwanted items near complex systems.<br>The &1Solegnolia&0 disrupts the ring and prevents any items around it from being pulled towards a wearer of one. It uses up a small bit of &4Mana&0 for this, but nothing considerate.
+botania.page.solegnolia0=The &1Ring of Magnetization&0 is a rather handy tool for anyone digging or collecting. It does, however, fall into the problem that it picks up unwanted items near complex systems. The &1Solegnolia&0 disrupts the ring and prevents any items around it from being pulled towards a wearer of one, and any rings whose wearers stand inside the radius from picking items up. It uses up a small bit of &4Mana&0 for this, but nothing considerate.
 botania.page.solegnolia1=On/Off
 
 # - GENERATING FLOWERS
@@ -2810,8 +2828,8 @@ botania.page.teruTeruBozu1=Too spoopy
 # -- LIVINGWOOD AVATAR
 botania.entry.avatar=Livingwood Avatar
 botania.tagline.avatar=Rod effects in a block
-botania.page.avatar0=Cavring some &1Livingwood&0 and combining it with a &1Mana Diamond&0 heart creates an apparatus known as the &1Livingwood Avatar&0. By itself, this block doesn't do anything, aside from looking reasonably pretty.<br>However, giving it a &4Rod&0 can enable it to cast varied magic, depending on which one is given. At the cost of &4Mana&0, from a spreader, of course.
-botania.page.avatar1=Not add &4Rods&0 fit this criteria. Any that do, however, will have an explanation of what they can do when given to a &1Livingwood Avatar&0 on their entry.<br>A few examples of some rods that will work are the &1Rod of the Skies&0, &1Rod of the Hells&0 and &1Rod of the Plentiful Mantle&0.
+botania.page.avatar0=Carving some &1Livingwood&0 and combining it with a &1Mana Diamond&0 heart creates an apparatus known as the &1Livingwood Avatar&0. By itself, this block doesn't do anything, aside from looking reasonably pretty.<br>However, giving it a &4Rod&0 can enable it to cast varied magic, depending on which one is given. At the cost of &4Mana&0, from a spreader, of course.
+botania.page.avatar1=Not all &4Rods&0 fit this criteria. Any that do, however, will have an explanation of what they can do when given to a &1Livingwood Avatar&0 on their entry.<br>A few examples of some rods that will work are the &1Rod of the Skies&0, &1Rod of the Hells&0 and &1Rod of the Plentiful Mantle&0.
 botania.page.avatar2=But is it an anime?
 
 # - MYSTICAL INSTRUMENTS
@@ -3131,6 +3149,13 @@ botania.tagline.autocraftingHalo=An Assembly Halo that crafts for you
 botania.page.autocraftingHalo0=The &1Manufactory Halo&0 serves as a variation of the &1Assembly Halo&0. Aside from doing all that the &1Assembly Halo&0 can do, the &1Manufactory Halo&0 will automatically try to execute all of the assigned recipes if possible, as long as the item isn't being held.<br>This opens up a few potential uses, such as automatically compressing ores while mining.
 botania.page.autocraftingHalo1=Halo Now Launcher
 
+# -- WORLDSHAPER'S SEXTANT
+botania.entry.sextant=Worldshaper's Sextant
+botania.tagline.sextant=A tool to help create circles
+botania.page.sextant0=In this cubic world, the art of creating circles often eludes many, to the point where they have to perform the unholy art of "tabbing out" in order to learn the procedures for creating one.<br>The &1Worldshaper's Sextant&0 is a simple tool to, you guessed it, aid in creating circles. To use the item, simply point at a block to set a center and look around to expand the radius.
+botania.page.sextant1=While the item is being used, a blue circle will appear in the world, as a simple preview of where the circle will be placed. Upon letting go, a circle of fake &1Cobblestone&0 blocks will show up as your building guide.<br>Shift-right clicking with this item in hand resets or removes the circle.
+botania.page.sextant2=You sketch a circle, filling you with determination
+
 # - ENDER ARTEFACTS
 # -- EXTRACTING ENDER AIR
 botania.entry.enderAir=Extracting Ender Air
@@ -3196,7 +3221,7 @@ botania.page.redString14=The &1Red Stringed Interceptor&0.
 botania.entry.flightTiara=Flügel Tiara
 botania.tagline.flightTiara=The ability to fly... for a bit
 botania.page.flightTiara0=The &4Flügel&0 were once a dominant species in the lands, now they're but a race past extinct, once created as godslayers, who possessed the ability of flight.<br>The usage of &1Gaia Spirits&0 allows for a small replica of their power, in the form of the &1Flügel Tiara&0, which, at the cost of &4Mana&0 allows for flight.
-botania.page.flightTiara4=Not all is perfect with reproducing old technology though, the tiara has its flaws, that meaning it can't provide the power of flight constantly. If used for over ten seconds without letting it recharge it'll stop being able to provide the power of flight.<br>A "flight bar" is displayed on the HUD to help monitor this.
+botania.page.flightTiara4=Not all is perfect with reproducing old technology though, the tiara has its flaws, that meaning it can't provide the power of flight constantly. If used for over thirty seconds without letting it recharge it'll stop being able to provide the power of flight.<br>A "flight bar" is displayed on the HUD to help monitor this.
 botania.page.flightTiara5=In addition to simple flight, the tiara grants the wearer the ability to &4dash&0 and &4glide&0. Pressing the sprint key (CTRL by default) while flying, provided one isn't sprinting already, will start a dash, a quick speed boost in the direction the wearer's facing.<br>Dashes can only be done every 2 seconds.
 botania.page.flightTiara6=Gliding allows one to gently descend to the ground while also covering a decent horizontal distance. It also prevents fall damage. To glide, one would simply sneak while falling.<br>Gliding can be executed even with an empty flight bar, but while gliding, the flight bar regenerates slower than normally.
 botania.page.flightTiara1=Forty thousand books from another world
@@ -3586,7 +3611,7 @@ botania.entry.lokiRing=Ring of Loki
 botania.tagline.lokiRing=The power to be here, and there, and over there too
 botania.page.lokiRing0=One of the three mythic rings of the &4Aesir&0, the &1Ring of Loki&0 allows for the wearer to tap upon the Trickster God &4Loki&0 to effectively be in multiple places at once.<br>The setup for this ability requires, first and foremost, an empty hand. Shift-right clicking on a block with said empty hand while having the &1Ring of Loki&0 equipped begins the procedure.
 botania.page.lokiRing1=Once the source block is selected, shift-right clicking on other blocks in the world will add them to the relative positions affected by this power. In order to finish the procedure, one would shift-right click the original block.<br>Shift-right clicking on one of the blocks that has been selected will remove it. To reset a completed selection, shift-right click the ground twice.
-botania.page.lokiRing2=After the selection is complete, when looking around, one will notice multiple boxes in relative positions to the selected block. When a block is placed, the placing action is mimicked on all of those positions, allowing for one to place a large amount of blocks at once.<br>This ability also extends to destruction using the &1Terra Shatterer&0 or &1Terra Truncator&0.  
+botania.page.lokiRing2=After the selection is complete, when looking around, one will notice multiple boxes in relative positions to the selected block. When a block is placed while sneaking, the placing action is mimicked on all of those positions, allowing for one to place a large amount of blocks at once. This ability also extends to destruction using the &1Terra Shatterer&0 or &1Terra Truncator&0.  
 botania.page.lokiRing3=Such a power does not come for free of course. Utilizing this ability costs &4Mana&0 from the user's inventory per each block placed. It's to note that the more blocks that are selected, the more expensive &4each placed block&0 becomes.<br>Lastly, this ring can be combined with the other two rings of the &4Aesir&0 in a crafting table to create the ultimate ring.
 
 # -- RING OF ODIN

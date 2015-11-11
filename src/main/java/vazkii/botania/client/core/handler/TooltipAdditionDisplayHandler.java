@@ -11,6 +11,7 @@
 package vazkii.botania.client.core.handler;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.client.Minecraft;
@@ -59,7 +60,12 @@ public final class TooltipAdditionDisplayHandler {
 					int mouseX = Mouse.getX() * res.getScaledWidth() / mc.displayWidth;
 					int mouseY = res.getScaledHeight() - Mouse.getY() * res.getScaledHeight() / mc.displayHeight;
 
-					List<String> tooltip = stack.getTooltip(mc.thePlayer, mc.gameSettings.advancedItemTooltips);
+					List<String> tooltip;
+					try {
+						tooltip = stack.getTooltip(mc.thePlayer, mc.gameSettings.advancedItemTooltips);
+					} catch(Exception e) {
+						tooltip = new ArrayList();
+					}
 					int width = 0;
 					for(String s : tooltip)
 						width = Math.max(width, font.getStringWidth(s) + 2);
@@ -110,7 +116,7 @@ public final class TooltipAdditionDisplayHandler {
 								int cx = x + 8;
 								int cy = y + 8;
 								float r = 12;
-								float time = 30F;
+								float time = 20F;
 								float angles = lexiconLookupTime / time * 360F;
 
 								GL11.glDisable(GL11.GL_LIGHTING);
@@ -150,7 +156,8 @@ public final class TooltipAdditionDisplayHandler {
 
 							font.drawStringWithShadow("?", x + 10, y + 8, 0xFFFFFFFF);
 							GL11.glScalef(0.5F, 0.5F, 1F);
-							mc.fontRenderer.drawStringWithShadow(EnumChatFormatting.BOLD + (ConfigHandler.useShiftForQuickLookup ? "Shift" : "Ctrl"), (x + 10) * 2 - 16, (y + 8) * 2 + 20, 0xFFFFFFFF);
+							boolean mac = Minecraft.isRunningOnMac;
+							mc.fontRenderer.drawStringWithShadow(EnumChatFormatting.BOLD + (ConfigHandler.useShiftForQuickLookup ? "Shift" : (mac ? "Cmd" : "Ctrl")), (x + 10) * 2 - 16, (y + 8) * 2 + 20, 0xFFFFFFFF);
 							GL11.glScalef(2F, 2F, 1F);
 
 							GL11.glEnable(GL11.GL_DEPTH_TEST);
