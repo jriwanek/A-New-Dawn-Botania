@@ -54,8 +54,7 @@ public final class LibLexicon {
 	public static final String MANA_REDSTONE_SPREADER = "redstoneSpreader";
 	public static final String MANA_MANASTAR = "manastar";
 	public static final String MANA_DREAMWOOD_SPREADER = "dreamwoodSpreader";
-	public static final String MANA_PAINT_LENS = "paintLens";
-	public static final String MANA_WARP_LENS = "warpLens";
+	public static final String MANA_ELVEN_LENSES = "elvenLenses";
 	public static final String MANA_SPARKS = "sparks";
 	public static final String MANA_SPARK_UPGRADES = "sparkUpgrades";
 	public static final String MANA_PRISM = "prism";
@@ -132,6 +131,7 @@ public final class LibLexicon {
 	public static final String DEVICE_MANA_BOMB = "manaBomb";
 	public static final String DEVICE_TERU_TERU_BOZU = "teruTeruBozu";
 	public static final String DEVICE_AVATAR = "avatar";
+	public static final String DEVICE_FEL_PUMPKIN = "felPumpkin";
 
 	public static final String TOOL_MANA_BLASTER = "manaBlaster";
 	public static final String TOOL_GRASS_SEEDS = "grassSeeds";
@@ -222,6 +222,8 @@ public final class LibLexicon {
 	public static final String BAUBLE_JUDGEMENT_CLOAKS = "judgementCloaks";
 	public static final String BAUBLE_MONOCLE = "monocle";
 	public static final String BAUBLE_SWAP_RING = "swapRing";
+	public static final String BAUBLE_SPEED_UP_BELT = "speedUpBelt";
+	public static final String BAUBLE_BOX = "baubleBox";
 
 	public static final String ALF_INTRO = "aIntro";
 	public static final String ALF_MESSAGE = "elfMessage";

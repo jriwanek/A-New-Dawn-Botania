@@ -28,7 +28,10 @@ import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.RecipeSorter.Category;
 import vazkii.botania.api.internal.IManaBurst;
 import vazkii.botania.api.mana.BurstProperties;
+import vazkii.botania.api.mana.ICompositableLens;
 import vazkii.botania.api.mana.ILens;
+import vazkii.botania.api.mana.ILensControl;
+import vazkii.botania.api.mana.IManaSpreader;
 import vazkii.botania.api.mana.ITinyPlanetExcempt;
 import vazkii.botania.client.core.helper.IconHelper;
 import vazkii.botania.common.Botania;
@@ -39,9 +42,9 @@ import vazkii.botania.common.item.ItemMod;
 import vazkii.botania.common.lib.LibItemNames;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ItemLens extends ItemMod implements ILens, ITinyPlanetExcempt {
+public class ItemLens extends ItemMod implements ILensControl, ICompositableLens, ITinyPlanetExcempt {
 
-	public static final int SUBTYPES = 19;
+	public static final int SUBTYPES = 22;
 
 	public static final int NORMAL = 0,
 			SPEED = 1,
@@ -61,7 +64,10 @@ public class ItemLens extends ItemMod implements ILens, ITinyPlanetExcempt {
 			FIRE = 15,
 			PISTON = 16,
 			LIGHT = 17,
-			WARP = 18;
+			WARP = 18,
+			REDIRECT = 19,
+			FIREWORK = 20,
+			FLARE = 21;
 
 	public static final int STORM = 5000;
 
@@ -70,7 +76,8 @@ public class ItemLens extends ItemMod implements ILens, ITinyPlanetExcempt {
 			PROP_ORIENTATION = 1 << 1,
 			PROP_TOUCH = 1 << 2,
 			PROP_INTERACTION = 1 << 3,
-			PROP_DAMAGE = 1 << 4;
+			PROP_DAMAGE = 1 << 4,
+			PROP_CONTROL = 1 << 5;
 
 	private static final int[] props = new int[SUBTYPES];
 	private static final Lens[] lenses = new Lens[SUBTYPES];
@@ -97,6 +104,9 @@ public class ItemLens extends ItemMod implements ILens, ITinyPlanetExcempt {
 		setProps(PISTON, PROP_TOUCH | PROP_INTERACTION);
 		setProps(LIGHT, PROP_TOUCH | PROP_INTERACTION);
 		setProps(WARP, PROP_NONE);
+		setProps(REDIRECT, PROP_TOUCH | PROP_INTERACTION);
+		setProps(FIREWORK, PROP_TOUCH);
+		setProps(FLARE, PROP_CONTROL);
 
 		setLens(NORMAL, fallbackLens);
 		setLens(SPEED, new LensSpeed());
@@ -117,6 +127,9 @@ public class ItemLens extends ItemMod implements ILens, ITinyPlanetExcempt {
 		setLens(PISTON, new LensPiston());
 		setLens(LIGHT, new LensLight());
 		setLens(WARP, new LensWarp());
+		setLens(REDIRECT, new LensRedirect());
+		setLens(FIREWORK, new LensFirework());
+		setLens(FLARE, new LensFlare());
 	}
 
 	private static final String TAG_COLOR = "color";
@@ -275,8 +288,10 @@ public class ItemLens extends ItemMod implements ILens, ITinyPlanetExcempt {
 		lenses[index] = lens;
 	}
 
-	public static boolean isBlacklisted(int lens1, int lens2) {
-		return (props[lens1] & props[lens2]) != 0;
+	public static boolean isBlacklisted(ItemStack lens1, ItemStack lens2) {
+		ICompositableLens item1 = (ICompositableLens) lens1.getItem();
+		ICompositableLens item2 = (ICompositableLens) lens2.getItem();
+		return (item1.getProps(lens1) & item2.getProps(lens2)) != 0;
 	}
 
 	public static Lens getLens(int index) {
@@ -289,13 +304,15 @@ public class ItemLens extends ItemMod implements ILens, ITinyPlanetExcempt {
 
 	@Override
 	public boolean canCombineLenses(ItemStack sourceLens, ItemStack compositeLens) {
-		if(sourceLens.getItemDamage() == compositeLens.getItemDamage())
+		ICompositableLens sourceItem = (ICompositableLens) sourceLens.getItem();
+		ICompositableLens compositeItem = (ICompositableLens) compositeLens.getItem();
+		if(sourceItem == compositeItem && sourceLens.getItemDamage() == compositeLens.getItemDamage())
 			return false;
 
-		if(sourceLens.getItemDamage() == NORMAL || compositeLens.getItemDamage() == NORMAL)
+		if(!sourceItem.isCombinable(sourceLens) || !compositeItem.isCombinable(compositeLens))
 			return false;
 
-		if(isBlacklisted(sourceLens.getItemDamage(), compositeLens.getItemDamage()))
+		if(isBlacklisted(sourceLens, compositeLens))
 			return false;
 
 		return true;
@@ -320,5 +337,35 @@ public class ItemLens extends ItemMod implements ILens, ITinyPlanetExcempt {
 	@Override
 	public boolean shouldPull(ItemStack stack) {
 		return stack.getItemDamage() != STORM;
+	}
+
+	@Override
+	public boolean isControlLens(ItemStack stack) {
+		return (getProps(stack) & PROP_CONTROL) != 0;
+	}
+
+	@Override
+	public boolean allowBurstShooting(ItemStack stack, IManaSpreader spreader, boolean redstone) {
+		return lenses[stack.getItemDamage()].allowBurstShooting(stack, spreader, redstone);
+	}
+
+	@Override
+	public void onControlledSpreaderTick(ItemStack stack, IManaSpreader spreader, boolean redstone) {
+		lenses[stack.getItemDamage()].onControlledSpreaderTick(stack, spreader, redstone);
+	}
+
+	@Override
+	public void onControlledSpreaderPulse(ItemStack stack, IManaSpreader spreader, boolean redstone) {
+		lenses[stack.getItemDamage()].onControlledSpreaderPulse(stack, spreader, redstone);
+	}
+
+	@Override
+	public int getProps(ItemStack stack) {
+		return props[stack.getItemDamage()];
+	}
+
+	@Override
+	public boolean isCombinable(ItemStack stack) {
+		return stack.getItemDamage() != NORMAL;
 	}
 }

@@ -16,7 +16,7 @@ public final class LibMisc {
 
 	// Mod Constants
 	public static final String MOD_ID = "Botania";
-	public static final String MOD_NAME = MOD_ID;
+	public static final String MOD_NAME = "A New Dawn Botania";
 	public static final String BUILD = "GRADLE:BUILD";
 	public static final String VERSION = "GRADLE:VERSION-" + BUILD;
 	public static final String DEPENDENCIES = "required-after:Baubles;after:Thaumcraft";

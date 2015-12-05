@@ -34,11 +34,6 @@ public class SubTileThermalily extends SubTileHydroangeas {
 	}
 
 	@Override
-	public int getSurroundingFlowers() {
-		return 0;
-	}
-
-	@Override
 	public boolean isPassiveFlower() {
 		return false;
 	}
@@ -60,17 +55,17 @@ public class SubTileThermalily extends SubTileHydroangeas {
 
 	@Override
 	public int getBurnTime() {
-		return 875;
+		return 900;
 	}
 
 	@Override
 	public int getValueForPassiveGeneration() {
-		return 12;
+		return 20;
 	}
 
 	@Override
 	public int getMaxMana() {
-		return 250;
+		return 500;
 	}
 
 	@Override

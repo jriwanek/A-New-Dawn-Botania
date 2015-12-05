@@ -137,7 +137,8 @@ public class EntityDoppleganger extends EntityCreature implements IBotaniaBossWi
 		Block block = par3World.getBlock(par4, par5, par6);
 		if(block == Blocks.beacon && !par3World.isRemote) {
 			if(par3World.difficultySetting == EnumDifficulty.PEACEFUL) {
-				player.addChatMessage(new ChatComponentTranslation("botaniamisc.peacefulNoob").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
+				if(!par3World.isRemote)
+					player.addChatMessage(new ChatComponentTranslation("botaniamisc.peacefulNoob").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
 				return false;
 			}
 
@@ -149,12 +150,18 @@ public class EntityDoppleganger extends EntityCreature implements IBotaniaBossWi
 				Block blockat = par3World.getBlock(x, y, z);
 				int meta = par3World.getBlockMetadata(x, y, z);
 				if(blockat != ModBlocks.pylon || meta != 2) {
-					player.addChatMessage(new ChatComponentTranslation("botaniamisc.needsCatalysts").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
+					if(!par3World.isRemote)
+						player.addChatMessage(new ChatComponentTranslation("botaniamisc.needsCatalysts").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
 					return false;
 				}
 			}
 
+
 			par1ItemStack.stackSize--;
+			
+			if(par3World.isRemote)
+				return true;
+			
 			EntityDoppleganger e = new EntityDoppleganger(par3World);
 			e.setPosition(par4 + 0.5, par5 + 3, par6 + 0.5);
 			e.setInvulTime(SPAWN_TICKS);

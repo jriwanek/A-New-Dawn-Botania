@@ -7,7 +7,7 @@ Hey there. Looks like you want to contribute with an issue. Great. Here's what y
   * Unless you manually update every mod on the pack to the latest, issues regarding any public modpack that is not officially maintained or supported by the botania developers (the ones in the modpack section of the website are not) are **not accepted**;
   * Duplicate issues or issues that have been solved already (use the search feature!) will be closed without asking.
   * Do not tag your issues' names. "Something Broke" is prefered to "[Bug] Something Broke"  because there's a proper label system in place.
-  * Post suggestions or ideas on reddit or the forums. This is for bugs, not ideas.
+  * Suggestions are **not** accepted here. Post them on the forums or reddit instead. If there's any still open they're old ones before this rule was added.
 
 The following "bugs" are not accepted:
 * Intended Behaviour

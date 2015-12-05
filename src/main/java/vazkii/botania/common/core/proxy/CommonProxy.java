@@ -57,6 +57,7 @@ import vazkii.botania.common.integration.buildcraft.StatementAPIPlugin;
 import vazkii.botania.common.integration.etfuturum.ModBanners;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.lexicon.LexiconData;
+import vazkii.botania.common.lib.LibMisc;
 import vazkii.botania.common.network.GuiHandler;
 import vazkii.botania.common.world.WorldTypeSkyblock;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -194,6 +195,10 @@ public class CommonProxy {
 
 	public boolean isClientPlayerWearingMonocle() {
 		return false;
+	}
+	
+	public String getLastVersion() {
+		return LibMisc.BUILD;
 	}
 
 	public void setExtraReach(EntityLivingBase entity, float reach) {
